@@ -3,9 +3,7 @@ import 'dart:async';
 
 void main(List<String> args) async {
   Stream stream = numberStream(100);
-  await for (var s in stream) {
-    print('$s');
-  }
+  await for (var s in stream) {}
 }
 
 
@@ -20,11 +18,13 @@ Stream numberStream(num s) async* {
 void fizzBuzzshit(num s) async {
   await Future.delayed(const Duration(milliseconds: 50));
   if (s % 15 == 0) {
-    print('(FizzBuzz below)');
+    print('FizzBuzz');
   } else if (s % 5 == 0) {
-    print('(Buzz below)');
+    print('Buzz');
   } else if (s % 3 == 0) {
-    print('(Fizz below)');
-  } else {}
+    print('Fizz');
+  } else {
+    print('$s');
+  } 
 }
 
