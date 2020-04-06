@@ -22,22 +22,10 @@ void swap(List list, int i) {
 
 main(List list) {
   print('Please enter line of numbers to sort:');
-  RegExp regexp = RegExp(r'(?: |, |,)');
-  String input = stdin.readLineSync();
-  List<int> list = input.split(regexp).map(int.parse).toList();
-
-  print('Are you sure you want to sort these numbers:');
+  final regexp = RegExp(r'(?: |, |,)');
+  final input = stdin.readLineSync();
+  final list = input.split(regexp).map(int.parse).toList();
+  bubbleSort(list);
+  print('Here is your sorted list of numbers:');
   print(list);
-  print('If you are sure, type "yes" , if not type "no"');
-
-  String answer = stdin.readLineSync();
-  if (answer == 'yes') {
-    bubbleSort(list);
-    print('Here is your sorted list of numbers:');
-    print(list);
-  } else if (answer == 'no') {
-    print('Please enter line of numbers to sort:');
-    main(list);
-  } else
-    (null);
 }
